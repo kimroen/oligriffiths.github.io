@@ -5,13 +5,13 @@
   
   <title>HMVC and why your web app needs it! | Oli Griffiths</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MVC is a very well defined and understood concept in computer science these days. If you’re unfamiliar with MVC, I suggest you get reading :) So, I expect you’ve used MVC whilst building applications,">
+  <meta name="description" content="MVC is a very well defined and understood concept in computer science these days. If you&amp;#39;re unfamiliar with MVC, I suggest you get reading :) So, I expect you&amp;#39;ve used MVC whilst building appli">
 <meta name="keywords" content="MVC,HMVC,Design,Architecture">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HMVC and why your web app needs it!">
 <meta property="og:url" content="http://www.oligriffiths.com/2015/01/06/HMVC-and-why-you-should-use-it/index.html">
 <meta property="og:site_name" content="Oli Griffiths">
-<meta property="og:description" content="MVC is a very well defined and understood concept in computer science these days. If you’re unfamiliar with MVC, I suggest you get reading :) So, I expect you’ve used MVC whilst building applications,">
+<meta property="og:description" content="MVC is a very well defined and understood concept in computer science these days. If you&amp;#39;re unfamiliar with MVC, I suggest you get reading :) So, I expect you&amp;#39;ve used MVC whilst building appli">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.oligriffiths.com/assets/HMVC/MVC.png">
 <meta property="og:image" content="http://www.oligriffiths.com/assets/HMVC/MMMVC.png">
@@ -19,7 +19,7 @@
 <meta property="og:updated_time" content="2017-06-14T16:13:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HMVC and why your web app needs it!">
-<meta name="twitter:description" content="MVC is a very well defined and understood concept in computer science these days. If you’re unfamiliar with MVC, I suggest you get reading :) So, I expect you’ve used MVC whilst building applications,">
+<meta name="twitter:description" content="MVC is a very well defined and understood concept in computer science these days. If you&amp;#39;re unfamiliar with MVC, I suggest you get reading :) So, I expect you&amp;#39;ve used MVC whilst building appli">
 <meta name="twitter:image" content="http://www.oligriffiths.com/assets/HMVC/MVC.png">
   
     <link rel="alternative" href="/atom.xml" title="Oli Griffiths" type="application/atom+xml">
@@ -97,24 +97,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>MVC is a very well defined and understood concept in computer science these days. If you’re unfamiliar with MVC, I suggest you get reading :)</p>
-<p>So, I expect you’ve used MVC whilst building applications, you have your controllers, models and views, all looks good. Whilst this is a great start, and allows you to separate control from data from presentation, the problem is most developers stop there and thing that is the end of the road. Below you can see a representation of a simple MVC triad:</p>
+        <p>MVC is a very well defined and understood concept in computer science these days. If you&#39;re unfamiliar with MVC, I suggest you get reading :)</p>
+<p>So, I expect you&#39;ve used MVC whilst building applications, you have your controllers, models and views, all looks good. Whilst this is a great start, and allows you to separate control from data from presentation, the problem is most developers stop there and thing that is the end of the road. Below you can see a representation of a simple MVC triad:</p>
 <a id="more"></a>
 <p><img src="/assets/HMVC/MVC.png" alt="MVC"></p>
 <p>When an interface becomes more complex, this often  leads to developers coupling multiple models to one controller or view in order to create interfaces and functionality that utilises these models. This leads to inflexible and much harder to test code. </p>
 <p><img src="/assets/HMVC/MMMVC.png" alt="MMMVC"></p>
-<p>##What does the “H” mean?</p>
+<p>##What does the &quot;H&quot; mean?</p>
 <p>In HMVC, the H stands for hierarchical, what this means is that rather than a single monolithic MVC triad where your controller may pull in various different models and have a single view compose the result, your application can be made up of multiple, nested MVC chains, each with a very specific goal.</p>
-<p>HMVC aims to simplify some of this, by focusing on “composing” functionality and interfaces from self contained MVC triads, the goal is de-coupling and code re-use. </p>
+<p>HMVC aims to simplify some of this, by focusing on &quot;composing&quot; functionality and interfaces from self contained MVC triads, the goal is de-coupling and code re-use. </p>
 <p><img src="/assets/HMVC/HMVC.png" alt="HMVC"></p>
-<p>Take a product listings page for example, on this page, you’re likely to have a category list on the left, product listing in the centre and a cart on the right hand side for example. All of this can be easily separated out using HMVC. First, we need to decide which is the primary MVC triad, in this case it makes sense for it to be “products”. The products view can then be composed of the main products list, and dispatch a request to render the category list and another request to render the cart. Each of those entities can be contained within its own MVC triad, this keeps related functionality grouped together and by definition allows for greater separation of concerns. The same concept also applies to idempotic (state changing, eg POST) requests. Rather than have one controller reach out to multiple models to create multiple new entities the primary controller can make requests to other controllers, and those controllers handle everything within their domain. For example, when placing an order, there are multiple entities that need to be created, an order record, multiple line items for the order, a shipping status, perhaps an invoice or a history item. Each of those entities can be created within their own MVC triad.</p>
+<p>Take a product listings page for example, on this page, you&#39;re likely to have a category list on the left, product listing in the centre and a cart on the right hand side for example. All of this can be easily separated out using HMVC. First, we need to decide which is the primary MVC triad, in this case it makes sense for it to be &quot;products&quot;. The products view can then be composed of the main products list, and dispatch a request to render the category list and another request to render the cart. Each of those entities can be contained within its own MVC triad, this keeps related functionality grouped together and by definition allows for greater separation of concerns. The same concept also applies to idempotic (state changing, eg POST) requests. Rather than have one controller reach out to multiple models to create multiple new entities the primary controller can make requests to other controllers, and those controllers handle everything within their domain. For example, when placing an order, there are multiple entities that need to be created, an order record, multiple line items for the order, a shipping status, perhaps an invoice or a history item. Each of those entities can be created within their own MVC triad.</p>
 <p>##Benefits</p>
-<p>One simple benefit of the above approach is you automatically have the option to refresh certain parts of your interface using AJAX. Because each part of the view is generated via it’s own MVC triad, all you need do is expose that via an HTTP endpoint and you’re good to go. </p>
+<p>One simple benefit of the above approach is you automatically have the option to refresh certain parts of your interface using AJAX. Because each part of the view is generated via it&#39;s own MVC triad, all you need do is expose that via an HTTP endpoint and you&#39;re good to go. </p>
 <p>One key thing with HMVC is abstracting out the request and response mechanism to separate it from HTTP. This allows for internal calls to work in the same way as an external HTTP request. For more information on this, see my post: </p>
 <p>Another added benefit of this approach is testability. As each MVC triad is stand alone, it can be tested very easily, and as the request/response objects have been abstracted and can be mocked internally, the MVC triad has no idea the request is coming internally rather than externally. </p>
 <p>So far so good, each part of your interface is rendered independently, which allows each piece to be reused between different interfaces, this is great, less code to write makes for happier developers! We can take this a step further to make our lives even easier, the next step, componentisation!</p>
 <p>##Components</p>
-<p>Componentisation is a practice where by related functionality is separated out into it’s own “component”, in order to make the code reusable and provide a greater separation of concerns. When dealing with HMVC, having components is a major advantage, and allows functionality and interfaces to be composed from reusable and non-reusable (your application’s domain logic) components. If the component has been built with HMVC in mind, in order to create a composed interface, one only needs to dispatch an internal request to a controller in that component, and bam, interface rendered.</p>
+<p>Componentisation is a practice where by related functionality is separated out into it&#39;s own &quot;component&quot;, in order to make the code reusable and provide a greater separation of concerns. When dealing with HMVC, having components is a major advantage, and allows functionality and interfaces to be composed from reusable and non-reusable (your application&#39;s domain logic) components. If the component has been built with HMVC in mind, in order to create a composed interface, one only needs to dispatch an internal request to a controller in that component, and bam, interface rendered.</p>
 <p>Components can be shared amongst different components, for example, a users component with a user profile may dispatch a request to the orders component to render the users list of orders. Components can also be shared between projects which again increases code reuse, saving you time, win-win. </p>
 <p>##Conclusion</p>
 <p>HMVC serves to achieve the following:</p>
@@ -137,7 +137,7 @@
     </footer>
     
     <footer class="article-footer">
-      <a data-url="http://www.oligriffiths.com/2015/01/06/HMVC-and-why-you-should-use-it/" data-id="cjfuclrmm0002dzs9iso1yoru" class="article-share-link">Share</a>
+      <a data-url="http://www.oligriffiths.com/2015/01/06/HMVC-and-why-you-should-use-it/" data-id="cjgpwfnzi0004j8s8qjgy794i" class="article-share-link">Share</a>
       
         <a href="http://www.oligriffiths.com/2015/01/06/HMVC-and-why-you-should-use-it/#disqus_thread" class="article-comment-link">Comments</a>
       
