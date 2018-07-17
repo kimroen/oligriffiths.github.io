@@ -14,7 +14,7 @@
 <meta property="og:description" content="I recently completed work on updating Ember-CLI to use the new Broccoli 2.0 release. This is currently behind an experiment flag. Read on to find out how you can test it out.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.oligriffiths.com/broccolijs/assets/broccoli-logo.png">
-<meta property="og:updated_time" content="2018-07-17T16:26:14.606Z">
+<meta property="og:updated_time" content="2018-07-17T16:45:53.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ember Cli &amp; Broccoli 2.0">
 <meta name="twitter:description" content="I recently completed work on updating Ember-CLI to use the new Broccoli 2.0 release. This is currently behind an experiment flag. Read on to find out how you can test it out.">
@@ -102,8 +102,9 @@ release. This is currently behind an experiment flag. Read on to find out how yo
 <h2 id="History"><a href="#History" class="headerlink" title="History"></a>History</h2><p>First, a bit of history. Ember-CLI forked Broccoli back in 2015 to <a href="https://github.com/ember-cli/broccoli-builder" target="_blank" rel="noopener">broccoli-builder</a>
 in order to add features to the core library that were not accepted as upstream changes. From that point on, work happened
 in parallel, with updates being back-ported from the Broccoli master repo into the fork. Since then multiple contributions
-to the Broccoli master repo have been accepted, and in 2017, Stefan Penner and Robert Jackson did a huge amount of work
-rewriting Broccoli into ES6 format, and re-architected the internals.</p>
+to the Broccoli master repo have been accepted, and in 2017, Stefan Penner <a href="https://twitter.com/stefanpenner" target="_blank" rel="noopener">@stefanpenner</a>
+and Robert Jackson <a href="https://twitter.com/rwjblue" target="_blank" rel="noopener">@rwjblue</a> did a huge amount of work rewriting Broccoli into ES6 format,
+and re-architected the internals.</p>
 <p>As such, the divergence has become so great that backporting is no longer possible. That, along with some issues with
 <code>broccoli-builder</code> that folks have had, especially with the <code>tmp</code> directory being within the project directory, meant that
 the Ember-CLI team decided to back to upstream some fixes from <code>broccoli-builder</code> into <code>master</code>, and then update Ember-CLI
@@ -160,7 +161,7 @@ Please test this out and report any issues, or performance improvements/degradat
     </footer>
     
     <footer class="article-footer">
-      <a data-url="http://www.oligriffiths.com/2018/07/17/ember-cli-broccoli-2/" data-id="cjjpwtvsa00054es9ipf3jk1l" class="article-share-link">Share</a>
+      <a data-url="http://www.oligriffiths.com/2018/07/17/ember-cli-broccoli-2/" data-id="cjjpxjjv50000czs9nu20d4pc" class="article-share-link">Share</a>
       
         <a href="http://www.oligriffiths.com/2018/07/17/ember-cli-broccoli-2/#disqus_thread" class="article-comment-link">Comments</a>
       
