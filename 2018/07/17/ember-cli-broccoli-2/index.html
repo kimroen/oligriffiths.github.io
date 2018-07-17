@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Welcome | Oli Griffiths</title>
+  <title>Ember Cli &amp; Broccoli 2.0 | Oli Griffiths</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="So after holding this domain for nearly 2 years, I decided to actually get round to setting up this blog.">
+  <meta name="description" content="I recently completed work on updating Ember-Cli to use the new Broccoli 2.0 release. This is currently behind an experiment flag. Read on to find out how you can test it out.">
+<meta name="keywords" content="Ember,js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Welcome">
-<meta property="og:url" content="http://www.oligriffiths.com/2014/07/27/welcome/index.html">
+<meta property="og:title" content="Ember Cli &amp; Broccoli 2.0">
+<meta property="og:url" content="http://www.oligriffiths.com/2018/07/17/ember-cli-broccoli-2/index.html">
 <meta property="og:site_name" content="Oli Griffiths">
-<meta property="og:description" content="So after holding this domain for nearly 2 years, I decided to actually get round to setting up this blog.">
+<meta property="og:description" content="I recently completed work on updating Ember-Cli to use the new Broccoli 2.0 release. This is currently behind an experiment flag. Read on to find out how you can test it out.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-06-14T16:13:49.000Z">
+<meta property="og:image" content="http://www.oligriffiths.com/broccolijs/assets/broccoli-logo.png">
+<meta property="og:updated_time" content="2018-07-17T16:21:41.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome">
-<meta name="twitter:description" content="So after holding this domain for nearly 2 years, I decided to actually get round to setting up this blog.">
+<meta name="twitter:title" content="Ember Cli &amp; Broccoli 2.0">
+<meta name="twitter:description" content="I recently completed work on updating Ember-Cli to use the new Broccoli 2.0 release. This is currently behind an experiment flag. Read on to find out how you can test it out.">
+<meta name="twitter:image" content="http://www.oligriffiths.com/broccolijs/assets/broccoli-logo.png">
   
     <link rel="alternative" href="/atom.xml" title="Oli Griffiths" type="application/atom+xml">
   
@@ -70,10 +73,10 @@
         
         <div id="content">
           <div class="outer">
-            <section id="main"><article id="post-welcome" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-ember-cli-broccoli-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/07/27/welcome/" class="article-date">
-  <time datetime="2014-07-27T13:09:52.000Z" itemprop="datePublished">Jul 27 2014</time>
+    <a href="/2018/07/17/ember-cli-broccoli-2/" class="article-date">
+  <time datetime="2018-07-17T11:00:00.000Z" itemprop="datePublished">Jul 17 2018</time>
 </a>
     
   </div>
@@ -84,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Welcome
+      Ember Cli &amp; Broccoli 2.0
     </h1>
   
 
@@ -92,43 +95,89 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>So after holding this domain for nearly 2 years, I decided to actually get round to setting up this blog.
+        <p>I recently completed work on updating <a href="https://embercli.com" target="_blank" rel="noopener">Ember-Cli</a> to use the new <a href="https://github.com/broccolijs/broccoli" target="_blank" rel="noopener">Broccoli 2.0</a>
+release. This is currently behind an experiment flag. Read on to find out how you can test it out.</p>
+<p><img src="/broccolijs/assets/broccoli-logo.png" alt="broccoli"></p>
 <a id="more"></a>
-In any case, welcome. I&#39;ve been wanting to setup a coding blog for some time, but you know, life got in the way!</p>
-<p>The purpose of this blog is to showcase good coding practices, useful design patterns, new tools and services, and generally anything interesting that will make your life as a coder better.</p>
-<p>So, what better way to start than to blog about how I went about <a href="/2014/09/11/the-blog/">setting up this blog</a></p>
+<h2 id="History"><a href="#History" class="headerlink" title="History"></a>History</h2><p>First, a bit of history. Ember-CLI forked Broccoli back in 2015 to <a href="https://github.com/ember-cli/broccoli-builder" target="_blank" rel="noopener">broccoli-builder</a>
+in order to add features to the core library that were not accepted as upstream changes. From that point on, work happened
+in parallel, with updates being back-ported from the Broccoli master repo into the fork. Since then multiple contributions
+to the Broccoli master repo have been accepted, and in 2017, Stefan Penner and Robert Jackson did a huge amount of work
+rewriting Broccoli into ES6 format, and re-architected the internals.</p>
+<p>As such, the divergence has become so great that backporting is no longer possible. That, along with some issues with
+<code>broccoli-builder</code> that folks have had, especially with the <code>tmp</code> directory being within the project directory, meant that
+the Ember-CLI team decided to back to upstream some fixes from <code>broccoli-builder</code> into <code>master</code>, and then update Ember-CLI
+to use the newly updated Broccoli master.</p>
+<p>I was fortunate enough to be invited to join the Ember-CLI face-to-face after <a href="http://emberconf.com/" target="_blank" rel="noopener">EmberConf 2018</a>
+in Portland earlier this year, due to my work on the Broccoli workshop that I presented at the conference and a
+<a href="/broccolijs">tutorial series</a> that I produced. During this meeting, we formulated a plan of attack, and I drew up a
+quest issue <a href="issue 360">https://github.com/broccolijs/broccoli/issues/360</a>.</p>
+<p>Work then began over the following months, to upstream some required changes that had been made to <code>broccoli-builder</code> into
+the main Broccoli repository, as well as integrating the main Broccoli library back into Ember-CLI in parallel with
+<code>broccoli-builder</code>, so that it can be tested side-by-side under the experiment functionality of Ember-CLI.</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>In order to test out the new Broccoli 2.0 release in Ember-CLI you must do 2 things, update Ember-CLI to use <code>master</code>
+and to enable the experiment. Experiments are only enabled in Ember-CLI master, so first, let&#39;s get that:</p>
+<h3 id="Ember-CLI-master"><a href="#Ember-CLI-master" class="headerlink" title="Ember-CLI master"></a>Ember-CLI master</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev &quot;https://github.com/ember-cli/ember-cli.git#master&quot;</span><br></pre></td></tr></table></figure>
+<p>or
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev &quot;https://github.com/ember-cli/ember-cli.git#master&quot;</span><br></pre></td></tr></table></figure></p>
+<p>Once that completes, you&#39;ll be using the bleeding-edge Ember-CLI, exciting!</p>
+<h3 id="Enabling-Broccoli-2-0"><a href="#Enabling-Broccoli-2-0" class="headerlink" title="Enabling Broccoli 2.0"></a>Enabling Broccoli 2.0</h3><p>Next, you need to enable a build using the experiment, to do that, run:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EMBER_CLI_BROCCOLI_2=true ember build</span><br></pre></td></tr></table></figure>
+<p>This should build as before, hopefully everything works and you don&#39;t get any errors.</p>
+<p>Now try running serve:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EMBER_CLI_BROCCOLI_2=true ember serve</span><br></pre></td></tr></table></figure>
+<p>If you experience any errors when using the experiment enabled that you do not get when running without the experiment,
+please hop onto the <a href="https://embercommunity.slack.com/messages/C0CRP360G" target="_blank" rel="noopener">Ember community slack</a> and let us know, or
+submit an issue to <a href="https://github.com/ember-cli/ember-cli/issues" target="_blank" rel="noopener">github</a>, please make sure you include:</p>
+<ul>
+<li>what OS you&#39;re running</li>
+<li>what Ember version you&#39;re using</li>
+<li>what addons and broccoli-plugins you&#39;re using</li>
+<li>a link to your project if it&#39;s publicly available.</li>
+</ul>
+<h3 id="Enabling-system-temp-directory"><a href="#Enabling-system-temp-directory" class="headerlink" title="Enabling system temp directory"></a>Enabling system temp directory</h3><p>One problem with <code>broccoli-builder</code> is that it uses the project directory to write temp files during the build process.
+This often causes performance problems, especially on windows. Broccoli master now supports (by default) setting the temp
+directory to the system temp directory. To enable this in Ember-CLI, do the following:</p>
+<p>Start by removing the temp directory if it already exists:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf tmp;</span><br></pre></td></tr></table></figure></p>
+<p>Now build:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EMBER_CLI_BROCCOLI_2=true EMBER_CLI_SYSTEM_TEMP=true ember build</span><br></pre></td></tr></table></figure></p>
+<p>Or to serve:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EMBER_CLI_BROCCOLI_2=true EMBER_CLI_SYSTEM_TEMP=true ember serve</span><br></pre></td></tr></table></figure></p>
+<p>When serving, you should notice that not <code>tmp</code> directory is created in the project. Note that <code>EMBER_CLI_SYSTEM_TEMP</code> only
+works in combination with <code>EMBER_CLI_BROCCOLI_2</code>.
+Please test this out and report any issues, or performance improvements/degradations as above.</p>
+<p>I hope you enjoy using the new Broccoli 2.0. Next up, documentation....</p>
 
       
     </div>
     
     <footer class="article-footer">
         If you notice any errors or things that need fixing in this article, please
-        <a href="https://github.com/oligriffiths/oligriffiths.github.io/blob/content/_posts/welcome.md">
+        <a href="https://github.com/oligriffiths/oligriffiths.github.io/blob/content/_posts/ember-cli-broccoli-2.md">
         submit a pull request against the article on Github
         </a>
     </footer>
     
     <footer class="article-footer">
-      <a data-url="http://www.oligriffiths.com/2014/07/27/welcome/" data-id="cjjpp915d000ozsm9idlmzjgz" class="article-share-link">Share</a>
+      <a data-url="http://www.oligriffiths.com/2018/07/17/ember-cli-broccoli-2/" data-id="cjjpp9151000czsm9oo3np8nz" class="article-share-link">Share</a>
       
-        <a href="http://www.oligriffiths.com/2014/07/27/welcome/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://www.oligriffiths.com/2018/07/17/ember-cli-broccoli-2/#disqus_thread" class="article-comment-link">Comments</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ember/">Ember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2014/09/11/the-blog/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          The Blog
-        
-      </div>
-    </a>
   
+    <a href="/2018/04/27/eat-your-greens-broccolijs-tutorial/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Eat Your Greens - A Broccoli.js Tutorial</div>
+    </a>
   
 </nav>
 
@@ -145,7 +194,7 @@ In any case, welcome. I&#39;ve been wanting to setup a coding blog for some time
 <script>
     var disqus_shortname = 'oligriffiths';
     
-    var disqus_url = 'http://www.oligriffiths.com/2014/07/27/welcome/';
+    var disqus_url = 'http://www.oligriffiths.com/2018/07/17/ember-cli-broccoli-2/';
     
     (function(){
         var dsq = document.createElement('script');
